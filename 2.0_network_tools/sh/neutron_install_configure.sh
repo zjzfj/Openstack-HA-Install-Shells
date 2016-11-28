@@ -107,11 +107,11 @@ openstack-config --set /etc/neutron/metadata_agent.ini DEFAULT metadata_proxy_sh
 #openstack-config --set /etc/nova/nova.conf neutron service_metadata_proxy True
 #openstack-config --set /etc/nova/nova.conf neutron metadata_proxy_shared_secret $password
 #
-#### [所有控制节点]配置L3 agent HA、/etc/neutron/neutron.conf
-#openstack-config --set /etc/neutron/neutron.conf DEFAULT l3_ha True
-#openstack-config --set /etc/neutron/neutron.conf DEFAULT allow_automatic_l3agent_failover True
-#openstack-config --set /etc/neutron/neutron.conf DEFAULT max_l3_agents_per_router 3
-#openstack-config --set /etc/neutron/neutron.conf DEFAULT min_l3_agents_per_router 2
+### [所有控制节点]配置L3 agent HA、/etc/neutron/neutron.conf
+openstack-config --set /etc/neutron/neutron.conf DEFAULT l3_ha True
+openstack-config --set /etc/neutron/neutron.conf DEFAULT allow_automatic_l3agent_failover True
+openstack-config --set /etc/neutron/neutron.conf DEFAULT max_l3_agents_per_router 3
+openstack-config --set /etc/neutron/neutron.conf DEFAULT min_l3_agents_per_router 2
 
 ### [所有控制节点]配置DHCP agent HA、/etc/neutron/neutron.conf
 openstack-config --set /etc/neutron/neutron.conf DEFAULT dhcp_agents_per_network 3
