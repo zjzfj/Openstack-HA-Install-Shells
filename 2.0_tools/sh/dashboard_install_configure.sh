@@ -25,7 +25,7 @@ echo "COMPRESS_OFFLINE = True" >> /etc/openstack-dashboard/local_settings
 python /usr/share/openstack-dashboard/manage.py compress
 
 ### [所有控制节点] 设置HTTPD在特定的IP上监听
-sed -i -e 's/^Listen.*/Listen  '"$(ip addr show dev ${local_bridge} scope global | grep "inet " | sed -e 's#.*inet ##g' -e 's#/.*##g'|head -n 1)"':80/g' /etc/httpd/conf/httpd.conf 
+sed -i -e 's/^Listen.*/Listen  '"$(ip addr show dev ${local_nic} scope global | grep "inet " | sed -e 's#.*inet ##g' -e 's#/.*##g'|head -n 1)"':80/g' /etc/httpd/conf/httpd.conf 
 
 ### [所有控制节点] 添加pacemaker监测httpd的配置文件
 echo "<Location /server-status>
